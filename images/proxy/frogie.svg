@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 170" role="img" aria-label="Frogie's Arcade proxy">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#232323"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="300" height="170" rx="14" fill="url(#bg)"/>
+
+  <!-- frog head -->
+  <g filter="url(#glow)">
+    <circle cx="118" cy="46" r="15" fill="#5fd36a"/>
+    <circle cx="182" cy="46" r="15" fill="#5fd36a"/>
+  </g>
+  <circle cx="118" cy="46" r="7" fill="#10240f"/>
+  <circle cx="182" cy="46" r="7" fill="#10240f"/>
+  <circle cx="120" cy="44" r="2.5" fill="#ffffff"/>
+  <circle cx="184" cy="44" r="2.5" fill="#ffffff"/>
+  <path d="M78 78 q72 -40 144 0 q-14 46 -72 46 q-58 0 -72 -46 z" fill="#4bb855"/>
+  <path d="M108 88 q42 24 84 0" fill="none" stroke="#10240f" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="150" y="146" text-anchor="middle" font-family="'Source Sans Pro', Arial, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" letter-spacing="2">FROGIE'S ARCADE</text>
+</svg>

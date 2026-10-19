@@ -6,11 +6,8 @@ document.write(`
     </a>
     <nav>
       <a href="/games.html"><i class="fas fa-gamepad"></i></a>
-      <a href="/proxies"><i class="fas fa-lock"></i></a> 
-      <a href="/bookmarklets.html"><i class="fas fa-code"></i></a> 
-      <a href="/emulators.html"><i class="fas fa-server"></i></a> 
+      <a href="/prox1es"><i class="fas fa-lock"></i></a> 
       <a href="/mirror.html"><i class="fas fa-link"></i></a> 
-      <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>
       <a href="/widgetbot.html"><i class="fab fa-discord" style="color: #7289DA;"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>

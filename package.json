@@ -1,0 +1,20 @@
+{
+  "name": "opium",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/copy-static.mjs",
+    "preview": "npm run build && node scripts/serve-dist.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^7.0.2",
+    "vite": "^5.4.11"
+  }
+}
