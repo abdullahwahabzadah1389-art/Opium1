@@ -1,0 +1,18 @@
+# Dependencies (vendored)
+node_modules/
+
+# Build output
+dist/
+isolate/
+
+# Caches
+.cache/
+.npm/
+.vly-run/
+*.log
+tsconfig.tsbuildinfo
+
+# Local env — never part of source
+.env
+.env.*
+!.env.example
