@@ -19,11 +19,8 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		<title>Boxing Physics 2</title>
-		<script src="/js/all.js"></script>
 
 	    <link rel="stylesheet" type="text/css" href="style.css" />
-
-		<script type="text/javascript" src="scripts/poki-sdk.js"></script>
   	</head>
   	<body>
 	  	<div id="loader">
@@ -52,5 +49,33 @@
 			<div id="game"></div>
 		</div>
 
-		<script type="text/javascript" src="scripts/poki-unity-loader.js"></script>
+		<script type="text/javascript">
+			// Local boot shim (replaces missing scripts/poki-unity-loader.js): load the
+			// Unity loader from window.config, then instantiate with progress UI.
+			(function () {
+				var cfg = window.config;
+				function setProgress(p) {
+					p = Math.max(0, Math.min(1, p));
+					var pct = Math.round(p * 100);
+					var fill = document.getElementById("progress-fill");
+					var amount = document.getElementById("progress-amount");
+					if (fill) fill.style.width = pct + "%";
+					if (amount) amount.textContent = pct + "%";
+					if (p >= 1) {
+						var overlay = document.getElementById("loader");
+						if (overlay) overlay.style.display = "none";
+					}
+				}
+				setProgress(0);
+				var s = document.createElement("script");
+				s.src = cfg.unityWebglLoaderUrl;
+				s.onload = function () {
+					UnityLoader.instantiate(document.getElementById("game"), cfg.unityWebglBuildUrl, {
+						onProgress: setProgress
+					});
+				};
+				s.onerror = function () { setProgress(0); };
+				document.body.appendChild(s);
+			})();
+		</script>
 	</html>
