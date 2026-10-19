@@ -59,8 +59,11 @@ function serveFile(res, file) {
 
 createServer((req, res) => {
   let pathname;
+  let search;
   try {
-    pathname = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+    const parsed = new URL(req.url, 'http://x');
+    pathname = decodeURIComponent(parsed.pathname);
+    search = parsed.search;
   } catch {
     return send(res, 400, 'Bad request', 'text/plain; charset=utf-8');
   }
@@ -73,6 +76,13 @@ createServer((req, res) => {
 
   try {
     if (existsSync(target) && statSync(target).isDirectory()) {
+      // Match standard static-host semantics (python http.server, Netlify,
+      // Vercel): redirect /games/slope -> /games/slope/ so the page's
+      // relative assets (game.html, etc.) resolve against the directory.
+      if (!pathname.endsWith('/')) {
+        res.writeHead(301, { Location: pathname + '/' + search });
+        return res.end();
+      }
       const index = join(target, 'index.html');
       if (existsSync(index)) return serveFile(res, index);
     } else if (existsSync(target)) {
